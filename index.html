@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Piotr Gomoła">
+
+    <title>Python - wprowadzenie [warsztaty Saper]</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="#wstęp">Wstęp</a></li>
+                <li>
+                    <ul>
+                        <li><a href="#programowanie">Programowanie</a></li>
+                        <li><a href="#python_jako_pierwszy_język">Python jako pierwszy język</a></li>
+                        <li><a href="#główne_cechy">Główne cechy</a></li>
+                        <li><a href="#konsola_interaktywna">Konsola interaktywna</a></li>
+                        <li><a href="#uruchamianie_programów">Uruchamianie programów</a></li>
+                    </ul>
+                </li>
+                <li><a href="#python_-_podstawy">Python podstawy</a></li>
+                <li>
+                    <ul>
+                        <li><a href="#obiekty">Obiekty</a></li>
+                        <li><a href="#zmienne">Zmienne</a></li>
+                        <li><a href="#typy_danych">Typy danych</a></li>
+                        <li>
+                            <ul>
+                                <li><a href="#proste">Proste</a></li>
+                                <li>
+                                    <ul>
+                                        <li><a href="#int">int</a></li>
+                                        <li><a href="#float">float</a></li>
+                                        <li><a href="#bool">bool</a></li>
+                                        <li><a href="#nonetype">NoneType</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#kolekcje">Kolekcje</a></li>
+                                <li>
+                                    <ul>
+                                        <li><a href="#str">str</a></li>
+                                        <li><a href="#list">list</a></li>
+                                        <li><a href="#tuple">tuple</a></li>
+                                        <li><a href="#dict">dict</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#operatory">Operatory</a></li>
+                        <li><a href="#kontrola_przebiegu_programu">Kontrola przebiegu programu</a></li>
+                        <li>
+                            <ul>
+                                <li><a href="#instrukcja_warunkowa">Instrukcja warunkowa</a></li>
+                                <li><a href="#pętla_for">Pętla for</a></li>
+                                <li><a href="#pętla_while">Pętla while</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#funkcje">Funkcje</a></li>
+                        <li>
+                            <ul>
+                                <li><a href="#deklaracja_funkcji">Deklaracja funkcji</a></li>
+                                <li><a href="#obsługa_parametrów">Obsługa parametrów</a></li>
+                                <li><a href="#wywoływanie_funkcji">Wywoływanie funkcji</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#moduły">Moduły</a></li>
+                    </ul>
+                </li>
+                <li><a href="#gra_saper">Gra saper</a></li>
+                <li>
+                    <ul>
+                        <li><a href="#cele_i_założenia">Cele i założenia</a></li>
+                        <li><a href="#budowa_aplikacji">Budowa aplikacji</a></li>
+                        <li><a href="#oprogamowanie_brakującej_logiki">Oprogramowanie logiki</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">M</a>
+                <h1 id="wstęp">Wstęp</h1>
+                    <p>
+                        Jak przygotować się do zajęść?
+                        <ul>
+                            <li>Zainstaluj <a href="https://www.python.org/downloads/">Python</a> w wersji 3.7 dla swojego systemu operacyjnego (najlepiej 64bit)</li>
+                            <li>Zainstaluj edytor (IDE), najlepiej <a href="https://www.jetbrains.com/pycharm/download">PyCharm Community</a></li>
+                            <li>W przypadku wystemu Linux/MacOS zainstaluj biblioteki graficzne TKinter (w debian/ubuntu pakiet <code>python3-tk</code>)</li>
+                            <li>W przypadku systemu Windows pomocna będzie konsola <a href="https://gitforwindows.org/">GitBash</a></li>
+                        </ul>
+                    </p>
+                    <p>
+                        Dla wygodniejszej pracy z konsolą interaktywną zainstaluj <b>ipython</b><br/>
+                        <code>pip install ipython</code>
+                    </p>
+                    <h2 id="programowanie">Programowanie</h2>
+                        <p>
+                            <ul>
+                                <li>A właściwie na czym to polega?</li>
+                                <li>Po co uczyć się programować?</li>
+                                <li>Od czego zacząć?</li>
+                            </ul>
+                        </p>
+                    <h2 id="python_jako_pierwszy_język">Python jako pierwszy język</h2>
+                        <p>
+                            <ul>
+                                <li>prosty w nauce (naturalne konstrukcje)</li>
+                                <li>czytelny (wygodna recenzja, czytanie logiki)</li>
+                                <li>interpretowany – szybkie i łatwe programowanie oraz testowanie</li>
+                                <li>sprawne debugowanie</li>
+                                <li>brak konieczności zarządzania pamięcią (automatyczne)</li>
+                                <li>kod jest przenośny (zadziała tam, gdzie jest interpreter)</li>
+                                <li>szybki dewelopment (nie ma kompilacji)</li>
+                                <li>bogata biblioteka standardowa, dużo modułów trzecich</li>
+                            </ul>
+                        </p>
+                    <h2 id="główne_cechy">Główne cechy</h2>
+                    <p>
+                        <ul>
+                            <li>Obiektowy: wszystko jest obiektem</li>
+                            <li>Imperatywny: wykonuje instrukcję wiersz po wierszu</li>
+                            <li>Interpretowany: posiada maszynę wirtualną, która uruchamia kod z plików</li>
+                            <li>Język wysokiego poziomu: skupiamy się na logice biznesowej</li>
+                            <li>Wcięcia są częścią składni – zamiast klamer, średników (jak w C czy Javie)</li>
+                            <li>Kod znajduje się w plikach tekstowych, które nie wymagają kompilacji</li>
+                            <li>Posiada interaktywną konsolę: umożliwia testowanie kodu na żywo</li>
+                        </ul>
+                    </p>
+                    <h2 id="konsola_interaktywna">Konsola interaktywna</h2>
+                    <p>
+                        Konsola interaktywna pozwala na bezpośrednie wydawanie poleceń języka bez konieczności pisania
+                        pliku programu. Umożliwia inspekcję obiektów, testowanie i uruchamianie kodu "na żywo".
+                    </p>
+                    <p>
+                        Aby uruchomić wbudowaną konsolę interaktywną, należy w powłoce systemowej (w Windows wiersz poleceń - cmd,
+                        w Linux/MacOS emulator terminala) wydać polecnie:
+                        <code>python</code>
+                    </p>
+                    <pre><font color="#8AE234"><b>piotrek@dell</b></font>:<font color="#729FCF"><b>~</b></font>
+    $ python
+    Python 2.7.15rc1 (default, Nov 12 2018, 14:31:15) 
+    [GCC 7.3.0] on linux2
+    Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+    &gt;&gt;&gt; print(&apos;hello world!&apos;)
+    hello world!
+                    </pre>
+                    <p>
+                        Standardowa konsola może być niewygodna w użyciu - zalecaną alternatywą jest <code>ipython</code>.
+                        Posiada ona kolorowanie składni, autouzupełnianie oraz dodatkowe funkcje niedostępne w wersji standardowej.
+                    </p>
+<pre>
+<font color="#8AE234"><b>piotrek@dell</b></font>:<font color="#729FCF"><b>~</b></font>
+    $ ipython3
+    Python 3.6.7 (default, Oct 22 2018, 11:32:17) 
+    Type &apos;copyright&apos;, &apos;credits&apos; or &apos;license&apos; for more information
+    IPython 7.2.0 -- An enhanced Interactive Python. Type &apos;?&apos; for help.
+    
+    <font color="#008700">In [</font><font color="#8AE234"><b>1</b></font><font color="#008700">]: print</font>(<font color="#AF5F00">&quot;hello world!&quot;</font>)                                                                                     
+    hello world!
+</pre>
+                    <p>
+                        <b>ipython</b> można zainstalować przy użyciu manadżera pakietów <b>pip</b> wydając polecenie:
+                        <code>pip install ipython</code>
+                    </p>
+                    <p>
+                        W przypadku systemu Windows przdatna będzie również powłoka <a href="https://github.com/git-for-windows/git/releases/tag/v2.20.1.windows.1">GitBash</a> posiadająca podobne funkcje i wygląd
+                        jak powłoki Linuxowe.
+                    </p>
+                    <h2 id="uruchamianie_programów">Uruchamianie programów</h2>
+                    <p>
+                        Kod programów umieszczony jest w tekstowych plikach z rozszerzeniem <b>py</b> i do ich uruchomienia
+                        wymagany jest interpreter, który będzie w stanie wykonać instrukcje zawarte w tym pliku.
+                    </p>
+                    <p>
+                        Najprostszym sposobem na uruchomienie programu z pliku jest wydanie polecenia <code>python plik.py</code>
+                    </p>
+<pre><font color="#8AE234"><b>piotrek@dell</b></font>:<font color="#729FCF"><b>~/projects/isa</b></font>
+    $ python3 hello.py 
+    hello world
+</pre>
+                <h1 id="python_-_podstawy">Python - podstawy</h1>
+                        <h2 id="obiekty">Obiekty</h2>
+                        <p>
+                            Struktury danych w Pythonie reprezentowane są przez obiekty. Obiekt to obszar pamięci, w którym
+                            przechowywana jest integralna jednostka danych. Obiekty posiadają:
+                            <ul>
+                                <li>id - identyfikator</li>
+                                <li>typ - czyli rodzaj obiektu (rodzina)</li>
+                                <li>wartość - jakie dane reprezentują</li>
+                            </ul>
+                            <p>
+                            Obiektami w Pythonie są np.liczby, ciągi znakowe, kolekcje (sekwencje) ale także funkcje, klasy, moduły.
+                            Obiekty można przekazywać jako argumenty funkcji, wykorzystywać ich atrybuty lub funkcje (zwane <b>metodami</b>)<br/>
+                            Podstawową inspekcję obiektów można wykonać funkcjami wbudowanymi:</p>
+                            <ul>
+                                <li><code>id()</code> - zwraca unikalny identyfikator obiektu</li>
+                                <li><code>type()</code> - zwraca typ obiektu</li>
+                                <li><code>print()</code> - wyświetla reprezentację tekstową</li>
+                                <li><code>repr()</code> - wyświetla reprezentację dla dewelopera</li>
+                                <li><code>dir()</code> - wyświetla listę atrybutów obiektu</li>
+                                <li><code>help()</code> - wyświetla opis pomocy (dokumentację), tzw. <code>docstring</code></li>
+                            </ul>
+                        </p>
+                        <h2 id="zmienne">Zmienne</h2>
+                        <p>
+                            Zmienne w Pythonie należy rozumieć jako <b>etykiety</b>, które jedynie przechowują lokalizację (adres obiektu) w pamięci.
+                            Na jeden obiekt może wskazywać wiele zmiennych. Operacje na zmiennych wykonywane są na obiektach.<br/>
+                            Do przypisania obiektu do zmiennej używa się operatora <code>=</code>
+                        </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>1</b></font><font color="#008700">]: </font>a = <font color="#008700">3</font>                                                                                                     
+
+<font color="#008700">In [</font><font color="#8AE234"><b>2</b></font><font color="#008700">]: </font>b = <font color="#AF5F00">&apos;to jes napis&apos;</font>                                                                                        
+
+<font color="#008700">In [</font><font color="#8AE234"><b>3</b></font><font color="#008700">]: </font>a = b                                                                                                     
+
+<font color="#008700">In [</font><font color="#8AE234"><b>4</b></font><font color="#008700">]: </font>a                                                                                                         
+<font color="#870000">Out[</font><font color="#EF2929"><b>4</b></font><font color="#870000">]: </font>&apos;to jes napis&apos;
+
+<font color="#008700">In [</font><font color="#8AE234"><b>5</b></font><font color="#008700">]: </font>b                                                                                                         
+<font color="#870000">Out[</font><font color="#EF2929"><b>5</b></font><font color="#870000">]: </font>&apos;to jes napis&apos;</pre>
+                        <h2 id="typy_danych">Typy danych</h2>
+                            <h3 id="proste">Proste</h3>
+                                <p>
+                                    Typy danych można w Pythonie podzielic na proste (atomowe) jak np. typ liczby całkowita czy typ funkcji
+                                    oraz na kolekcje. Kolekcje to obiekty, które mogą przechowywać inne obiekty.
+                                </p>
+                                <p>
+                                    Obiekty mogą być <b>zmienne</b> lub <b>niezmienne</b>. Cechą szczególną jest <b>wykonywalność</b> (funkcje, klasy).
+                                </p>
+                                <h4 id="int">int</h4>
+                                <p>
+                                    <code>int</code> - typ liczby całkowitej, obiekt niezmienny.<br/>
+                                    Konstruktorem jest funkcja <code>int()</code>
+                                </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>11</b></font><font color="#008700">]: </font>a = <font color="#008700">1</font>                                                                                                    
+
+<font color="#008700">In [</font><font color="#8AE234"><b>12</b></font><font color="#008700">]: </font>b = <font color="#008700">int</font>(<font color="#AF5F00">&apos;3&apos;</font>)                                                                                             
+
+<font color="#008700">In [</font><font color="#8AE234"><b>13</b></font><font color="#008700">]: </font>a + b                                                                                                    
+<font color="#870000">Out[</font><font color="#EF2929"><b>13</b></font><font color="#870000">]: </font>4</pre>
+                                <h4 id="float">float</h4>
+                                <p>
+                                    <code>float</code> - typ liczby rzeczywistej (zmiennoprzecinkowej), obiekt niezmienny.<br/>
+                                    Konstruktorem jest funkcja <code>float()</code>
+                                </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>14</b></font><font color="#008700">]: </font>f = <font color="#008700">5.4</font>                                                                                                  
+
+<font color="#008700">In [</font><font color="#8AE234"><b>15</b></font><font color="#008700">]: </font>x = <font color="#008700">float</font>(<font color="#AF5F00">&apos;6.6&apos;</font>)                                                                                         
+
+<font color="#008700">In [</font><font color="#8AE234"><b>16</b></font><font color="#008700">]: </font>f * x                                                                                                    
+<font color="#870000">Out[</font><font color="#EF2929"><b>16</b></font><font color="#870000">]: </font>35.64
+</pre>
+                                <h4 id="bool">bool</h4>
+                                <p>
+                                    <code>bool</code> - typ reprezentujący wartość logiczną <b>prawda/fałsz</b><br/>
+                                    Konstruktorem jest funkcja <code>bool()</code><br/>
+                                    Argumentem funkcji może być dowolny obiekt.<br/>
+                                    Wartości liczbowe odpowiadające liczbie 0
+                                    oraz puste kolekcje traktowane są jako Fałsz (wartość <code>False</code>),
+                                    pozostałe obiekty zazwyczaj jako Prawda (wartość <code>True</code>).
+                                </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>17</b></font><font color="#008700">]: bool</font>(<font color="#AF5F00">&apos;to jest napis&apos;</font>)                                                                                    
+<font color="#870000">Out[</font><font color="#EF2929"><b>17</b></font><font color="#870000">]: </font>True
+
+<font color="#008700">In [</font><font color="#8AE234"><b>18</b></font><font color="#008700">]: bool</font>(<font color="#008700">0</font>)                                                                                                  
+<font color="#870000">Out[</font><font color="#EF2929"><b>18</b></font><font color="#870000">]: </font>False
+
+<font color="#008700">In [</font><font color="#8AE234"><b>19</b></font><font color="#008700">]: </font><font color="#008700"><b>True</b></font> == <font color="#008700"><b>False</b></font>                                                                                            
+<font color="#870000">Out[</font><font color="#EF2929"><b>19</b></font><font color="#870000">]: </font>False</pre>
+                                <h4 id="nonetype">NoneType</h4>
+                                <p>
+                                    <code>None</code> - reprezentuje wartość nieustaloną
+                                </p>
+                            <h3 id="kolekcje">Kolekcje</h3>
+                                <p>
+                                    Kolekcje można nazwać kontenerami - mogą zawierać inne obiekty.<br/>
+                                    Cechą karakterystyczną kolekcji jest możliwość sprawdzenia wielkości zbioru funkcją <code>len()</code><br/>
+                                    Pobieranie elementów z kolekcji będących sekwencjami odbywa się za pomocą ideksów (ideksem jest liczba naturalna)<br/>
+                                    <code>sekwencja[n]</code> - pobiera n-ty element ze zbioru
+                                </p>
+                                <h4 id="str">str</h4>
+                                <p>
+                                    Typ napisowy <code>str</code> reprezentuje ciągi znaków alfabetów używanych przez ludzi.
+                                    Obiekty napisów są niezmienne.
+                                    Konstruktorem napisów jest funkcja <code>str()</code><br/>
+                                    Tekst można formatować (wstawiać wartości) przy uzyciu metody <code>format()</code>
+                                </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>27</b></font><font color="#008700">]: </font>n = <font color="#AF5F00">&apos;to jest napis&apos;</font>                                                                                      
+
+<font color="#008700">In [</font><font color="#8AE234"><b>28</b></font><font color="#008700">]: </font>n = <font color="#AF5F00">&quot;&quot;&quot; to &quot;też&quot; &apos;jest&apos; napis&quot;&quot;&quot;</font>                                                                         
+
+<font color="#008700">In [</font><font color="#8AE234"><b>29</b></font><font color="#008700">]: </font>n = ( 
+<font color="#008700">    ...: </font>    <font color="#AF5F00">&apos;a to jest &apos;</font> 
+<font color="#008700">    ...: </font>    <font color="#AF5F00">&apos;napis &apos;</font> 
+<font color="#008700">    ...: </font>    <font color="#AF5F00">&apos;wielowierszowy&apos;</font> 
+<font color="#008700">    ...: </font>)                                                                                                        
+
+<font color="#008700">In [</font><font color="#8AE234"><b>30</b></font><font color="#008700">]: </font>n                                                                                                        
+<font color="#870000">Out[</font><font color="#EF2929"><b>30</b></font><font color="#870000">]: </font>&apos;a to jest napis wielowierszowy&apos;</pre>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>1</b></font><font color="#008700">]: </font><font color="#AF5F00">&apos;</font><font color="#AF5F87"><b>{0}</b></font><font color="#AF5F00"> to bardzo </font><font color="#AF5F87"><b>{jaki}</b></font><font color="#AF5F00"> język programowania&apos;</font>.format(<font color="#AF5F00">&apos;Python&apos;</font>, jaki=<font color="#AF5F00">&apos;fajny&apos;</font>)                                 
+<font color="#870000">Out[</font><font color="#EF2929"><b>1</b></font><font color="#870000">]: </font>&apos;Python to bardzo fajny język programowania&apos;</pre>
+                                <h4 id="list">list</h4>
+                                <p>
+                                    Listy do kontener zmienny, który może przechowywać dowolną liczbę obiektów różnych typów.
+                                    Lista zachowuje kolejność elementów i mogą się one powtarzać. Elementy z listy można dodawać i usuwać.<br/>
+                                    Konstruktorem listy jest funkcja <code>list()</code>
+                                </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>31</b></font><font color="#008700">]: </font>l1 = [<font color="#AF5F00">&apos;a&apos;</font>, <font color="#008700"><b>False</b></font>, <font color="#008700"><b>None</b></font>, <font color="#008700">6.6</font>, [<font color="#008700">1</font>, <font color="#008700">2</font>, <font color="#008700">3</font>]]                                                                  
+
+<font color="#008700">In [</font><font color="#8AE234"><b>32</b></font><font color="#008700">]: </font>l2 = <font color="#008700">list</font>(<font color="#AF5F00">&apos;to jest napis&apos;</font>)                                                                               
+
+<font color="#008700">In [</font><font color="#8AE234"><b>33</b></font><font color="#008700">]: </font>l2                                                                                                       
+<font color="#870000">Out[</font><font color="#EF2929"><b>33</b></font><font color="#870000">]: </font>[&apos;t&apos;, &apos;o&apos;, &apos; &apos;, &apos;j&apos;, &apos;e&apos;, &apos;s&apos;, &apos;t&apos;, &apos; &apos;, &apos;n&apos;, &apos;a&apos;, &apos;p&apos;, &apos;i&apos;, &apos;s&apos;]</pre>
+                                <h4 id="tuple">tuple</h4>
+                                <p>
+                                    Tupla (krotka) to kontener bardzo podobny do listy, ale jest obiektem niezmiennym.
+                                    Raz utworzony nie pozwala na dodawania lub usuwanie elementów zbioru.
+                                    Same obiekty mogą jednak się zmieniać.<br/>
+                                    Konstruktorem tupli jest funkcja <code>tuple()</code>
+                                </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>36</b></font><font color="#008700">]: tuple</font>(<font color="#AF5F00">&apos;napis&apos;</font>)                                                                                           
+<font color="#870000">Out[</font><font color="#EF2929"><b>36</b></font><font color="#870000">]: </font>(&apos;n&apos;, &apos;a&apos;, &apos;p&apos;, &apos;i&apos;, &apos;s&apos;)
+
+<font color="#008700">In [</font><font color="#8AE234"><b>37</b></font><font color="#008700">]: </font>krotka = (<font color="#008700">1</font>, <font color="#008700"><b>None</b></font>, <font color="#008700"><b>False</b></font>, <font color="#AF5F00">&apos;abc&apos;</font>)                                                                         
+
+<font color="#008700">In [</font><font color="#8AE234"><b>38</b></font><font color="#008700">]: len</font>(krotka)                                                                                              
+<font color="#870000">Out[</font><font color="#EF2929"><b>38</b></font><font color="#870000">]: </font>4</pre>
+                                <p>
+                                    Sekwencje obsługują operacje wycinanania podzbiorów:
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>51</b></font><font color="#008700">]: </font>napis = <font color="#AF5F00">&apos;ABCDEFGHIJK&apos;</font>                                                                                    
+
+<font color="#008700">In [</font><font color="#8AE234"><b>52</b></font><font color="#008700">]: </font>napis[<font color="#008700">0</font>] <font color="#5F8787"><i># pierwszy element</i></font>                                                                              
+<font color="#870000">Out[</font><font color="#EF2929"><b>52</b></font><font color="#870000">]: </font>&apos;A&apos;
+
+<font color="#008700">In [</font><font color="#8AE234"><b>53</b></font><font color="#008700">]: </font>napis[-<font color="#008700">1</font>] <font color="#5F8787"><i># ostatni element</i></font>                                                                              
+<font color="#870000">Out[</font><font color="#EF2929"><b>53</b></font><font color="#870000">]: </font>&apos;K&apos;
+
+<font color="#008700">In [</font><font color="#8AE234"><b>54</b></font><font color="#008700">]: </font>napis[<font color="#008700">3</font>:<font color="#008700">5</font>] <font color="#5F8787"><i># podzbiór elementów od trzeciego do piątego</i></font>                                                  
+<font color="#870000">Out[</font><font color="#EF2929"><b>54</b></font><font color="#870000">]: </font>&apos;DE&apos;
+
+<font color="#008700">In [</font><font color="#8AE234"><b>55</b></font><font color="#008700">]: </font>napis[<font color="#008700">3</font>:] <font color="#5F8787"><i># podzbiór elementów od trzeciego do końca zbioru</i></font>                                              
+<font color="#870000">Out[</font><font color="#EF2929"><b>55</b></font><font color="#870000">]: </font>&apos;DEFGHIJK&apos;
+
+<font color="#008700">In [</font><font color="#8AE234"><b>56</b></font><font color="#008700">]: </font>napis[<font color="#008700">0</font>:<font color="#008700">12</font>:<font color="#008700">2</font>] <font color="#5F8787"><i># co drugi element ze zbioru od pierwszego do dwunastego</i></font>                                   
+<font color="#870000">Out[</font><font color="#EF2929"><b>56</b></font><font color="#870000">]: </font>&apos;ACEGIK&apos;
+
+<font color="#008700">In [</font><font color="#8AE234"><b>57</b></font><font color="#008700">]: </font>napis[::-<font color="#008700">1</font>] <font color="#5F8787"><i># pełny zbiór w porządku odwrotnym </i></font>                                                          
+<font color="#870000">Out[</font><font color="#EF2929"><b>57</b></font><font color="#870000">]: </font>&apos;KJIHGFEDCBA&apos;</pre>
+                                </p>
+                                <h4 id="dict">dict</h4>
+                                <p>
+                                    Słowniki mają charakter mapy - są nieuporządkowaną kolekcją zestawu elementów <code>klucz: wartość</code><br/>
+                                    Klucze w słowniku nie mogą się powtarzać. Kolejność elementów słownika może zmienić się w trakcie pracy programu.<br/>
+                                    Konstruktorem jest funkcja <code>dict()</code><br/>
+                                    Słowniki nie są sekwencjami, pobieranie elementów odbywa się przez podanie obiektu klucza zamiast indeksu:</br>
+                                    <code>slownik[klucz]</code> - zwraca element przypisany pod obiekt <code>klucz</code> lub rzuca wyjątek <code>KeyError</code>
+                                </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>42</b></font><font color="#008700">]: </font>s = {<font color="#AF5F00">&apos;klucz&apos;</font>: <font color="#AF5F00">&apos;wartość&apos;</font>, <font color="#008700"><b>None</b></font>: <font color="#008700">1</font>, <font color="#008700">5</font>: [<font color="#AF5F00">&apos;a&apos;</font>, <font color="#AF5F00">&apos;b&apos;</font>, <font color="#AF5F00">&apos;c&apos;</font>]}                                                    
+
+<font color="#008700">In [</font><font color="#8AE234"><b>43</b></font><font color="#008700">]: dict</font>([(<font color="#AF5F00">&apos;a&apos;</font>, <font color="#AF5F00">&apos;b&apos;</font>), (<font color="#008700">1</font>, <font color="#008700">3</font>)])                                                                               
+<font color="#870000">Out[</font><font color="#EF2929"><b>43</b></font><font color="#870000">]: </font>{&apos;a&apos;: &apos;b&apos;, 1: 3}
+
+<font color="#008700">In [</font><font color="#8AE234"><b>44</b></font><font color="#008700">]: </font>s[<font color="#AF5F00">&apos;klucz&apos;</font>]                                                                                               
+<font color="#870000">Out[</font><font color="#EF2929"><b>44</b></font><font color="#870000">]: </font>&apos;wartość&apos;</pre>
+                        <h2 id="operatory">Operatory</h2>
+                        <p>
+                            Operatory są częścią składni i służą do wkonywania operacji na obiektach.</br>
+                            Można je podzielić na kilka rodzajów:
+                            <ul>
+                                <li>Przypisania (wynik wyrażenia z prawej przypisany jest do zmiennej z lewej):</li>
+                                <li><code>=</code></li>
+                                <li>Arytmetyczne (można łączyć z operatorem przypisania):</li>
+                                <li><code>+, -, *, /, //, %, **</code></li>
+                                <li>Porównania i przynależności:</li>
+                                <li><code>==, !=, <, >, <=, >=, is, in</code></li>
+                                <li>Logiczne:</li>
+                                <li><code>and, or, not</code></li>
+                            </ul>
+                        </p>
+                        <h2 id="kontrola_przebiegu_programu">Kontrola przebiegu programu</h2>
+                            <h3 id="instrukcja_warunkowa">Instrukcja warunkowa</h3>
+                            <p>
+                                Instrukcja warunkowa <code>if</code> pozwala na podejmowanie decyzji w programie.
+                            </p>
+<div class="indent">                            <code>
+                                if wyrażenie:<br/>
+                                    <div class="indent">blok instrukcji</div>
+                                elif:<br/>
+                                    <div class="indent">inny blok instrukcji</div>
+                                else:<br/>
+                                    <div class="indent">alternatywny blok instrukcji</div>
+                            </code></div>
+                            <p>
+                                Bloki <code>elif</code> oraz <code>else</code> są opcjonalne.<br/>
+                                <code>wyrażenie</code> może być dowolnie skomplikowane - może być np. wywołaniem funkcji
+                            </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>58</b></font><font color="#008700">]: </font><font color="#008700"><b>if</b></font> <font color="#008700">len</font>(<font color="#AF5F00">&apos;abc&apos;</font>) &gt;= <font color="#008700">3</font>: 
+<font color="#008700">    ...: </font>    <font color="#008700">print</font>(<font color="#AF5F00">&apos;Ciąg ma 3 znaki lub więcej&apos;</font>) 
+<font color="#008700">    ...: </font><font color="#008700"><b>else</b></font>: 
+<font color="#008700">    ...: </font>    <font color="#008700">print</font>(<font color="#AF5F00">&apos;Ciąg ma mniej niż 3 znaki&apos;</font>) 
+<font color="#008700">    ...: </font>                                                                                                         
+Ciąg ma 3 znaki lub więcej</pre>
+                            <h3 id="pętla_for">Pętla for</h3>
+                            <p>
+                                Pętla <code>for</code> używana jest do iteracji po kolekcjach.</br>
+                                <div class="indent">
+                                    <code>for element in kolekcja:</code>
+                                        <div class="indent"><code>instrukcja A</code></div>
+                                    <code>else:</code>
+                                    <div class="indent"><code>instrukcja B</code></div>
+                                </div>
+                            </p>
+                            <p>
+                                Zmienna <code>element</code> przyjmuje kolejne obiekty z kolekcji przy każdym obrocie pętli.<br/>
+                                Blok <code>else</code> zostanie wywołany nawet przy pustej kolekcji (gdy nie wykona się ani razu
+                                instrukcja A), chyba, że pętla zostanie przerwana instrukcją <code>break</code>
+                            </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>63</b></font><font color="#008700">]: </font><font color="#008700"><b>for</b></font> el <font color="#AF00FF"><b>in</b></font> []: 
+<font color="#008700">    ...: </font>    <font color="#008700">print</font>(el) 
+<font color="#008700">    ...: </font><font color="#008700"><b>else</b></font>: 
+<font color="#008700">    ...: </font>    <font color="#008700">print</font>(<font color="#AF5F00">&apos;pusta kolekcja&apos;</font>) 
+<font color="#008700">    ...: </font>                                                                                                         
+pusta kolekcja
+
+<font color="#008700">In [</font><font color="#8AE234"><b>64</b></font><font color="#008700">]: </font><font color="#008700"><b>for</b></font> el <font color="#AF00FF"><b>in</b></font> <font color="#AF5F00">&apos;ABC&apos;</font>: 
+<font color="#008700">    ...: </font>    <font color="#008700"><b>if</b></font> el == <font color="#AF5F00">&apos;C&apos;</font>: 
+<font color="#008700">    ...: </font>        <font color="#008700"><b>break</b></font> 
+<font color="#008700">    ...: </font>    <font color="#008700">print</font>(el) 
+<font color="#008700">    ...: </font><font color="#008700"><b>else</b></font>: 
+<font color="#008700">    ...: </font>    <font color="#008700">print</font>(<font color="#AF5F00">&apos;pusta kolekcja&apos;</font>) 
+<font color="#008700">    ...: </font>                                                                                                         
+A
+B</pre>
+                            <h3 id="pętla_while">Pętla while</h3>
+                            <p>
+                                Pętli <code>while</code> używa się gdy nie wiemy, ile razy instrukcje zostaną wykonane.
+                            </p>
+                            <div class="indent">
+                                <code>while wyrażenie:</code>
+                                <div class="indent"><code>instrukcja A</code></div>
+                                <code>else:</code>
+                                <div class="indent"><code>instrukcja B</code></div>
+                            </div>
+                            <p>
+                                Pętla <code>while</code> może nie wykonać się ani razu, jeśli inicjalnie warunek nie będzie spełniony.<br/>
+                                Opcjonalny blok <code>else</code> wykonywany jest po zakończeniu obrotów pętli, chyba, że zostanie ona przerwana instrukcją <code>break</code><br/>
+                                Instrukcja <code>continue</code> przerywa wykonywanie bieżącej pętli i przechodzi do następnej iteracji.
+                            </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>68</b></font><font color="#008700">]: </font><font color="#008700"><b>while</b></font> <font color="#008700">len</font>(a): 
+<font color="#008700">    ...: </font>    <font color="#008700">print</font>(a.pop()) 
+<font color="#008700">    ...: </font><font color="#008700"><b>else</b></font>: 
+<font color="#008700">    ...: </font>    <font color="#008700">print</font>(<font color="#AF5F00">&apos;Kolekcja jest już pusta&apos;</font>) 
+<font color="#008700">    ...: </font>                                                                                                         
+3
+2
+1
+Kolekcja jest już pusta
+</pre>
+                        <h2 id="funkcje">Funkcje</h2>
+                        <p>
+                            Funkcje są obiektami wykonywalnymi, w ciele których można zawrzeć blok instrukcji. Zostaną one wykonane
+                            po wywołaniu funkcji, co następuje po wpisaniu znaków <code>()</code> po jej nazwie.
+                        </p>
+                        <p>
+                            Obowiązującą konwencją nazewnictwa funkcji jest <code>lower_case_with_underscore</code>
+                        </p>
+                            <h3 id="deklaracja_funkcji">Deklaracja funkcji</h3>
+                            <p>
+                                Python posiada szereg funkcji wbudowanych w bibliotece standardowej, ale można tworzyć własne.<br/>
+                                Instrukcją deklaracji funkcji jest <code>def</code>
+                                <div class="indent"><code>def nazwa_funkcji():</code>
+                                <div class="indent"><code>ciało funkcji</code></div></div>
+                            </p>
+                            <p>
+                                Funkcje mogą zwracać dowolne obiekty. Użycie instrukcji <code>return</code> zwraca obiekt i kończy działanie funkcji.<br/>
+                                Główną zaletą i powodem stosowania funkcji jest zmniejszenie ilości i powtarzalnosci kodu.
+                            </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>69</b></font><font color="#008700">]: </font><font color="#008700"><b>def</b></font> <font color="#0087D7">funkcja</font>(): 
+<font color="#008700">    ...: </font>    <font color="#008700">print</font>(<font color="#AF5F00">&apos;to jest ciało funkcji&apos;</font>) 
+<font color="#008700">    ...: </font>    <font color="#008700"><b>return</b></font> <font color="#008700"><b>True</b></font> 
+<font color="#008700">    ...: </font>                                                                                                         
+
+<font color="#008700">In [</font><font color="#8AE234"><b>70</b></font><font color="#008700">]: </font>funkcja()                                                                                                
+to jest ciało funkcji
+<font color="#870000">Out[</font><font color="#EF2929"><b>70</b></font><font color="#870000">]: </font>True
+</pre>
+                            <h3 id="obsługa_parametrów">Obsługa parametrów</h3>
+                            <p>
+                                Funkcje mogą przyjmować parametry. Są dwa rodzaje parametrów:
+                                <ul>
+                                    <li>pozycyjne (wymagane)</li>
+                                    <li>nazwane (opcjonalne, z wartoscią domyślną)</li>
+                                </ul>
+                            </p>
+                            <p>
+                                Przekazując argumenty do wykonywanej funkcji należy najpierw podać wszystkie pozycyjne,
+                                a dopiero potem ewentualnie (wybrane) argumenty nazwane.<br/>
+                                W przypadku parametrów nazwanych, dla których nie przekaże się argumentu, nastąpi użycie wartości domyślnych.
+                                <p>
+                                    Wartościami domyślnymi nie powinny być obiekty zmienne (np. listy).
+                                </p>
+                            </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>77</b></font><font color="#008700">]: </font><font color="#008700"><b>def</b></font> <font color="#0087D7">funkcja_a</font>(arg): 
+<font color="#008700">    ...: </font>    <font color="#AF5F00"><i>&quot;&quot;&quot;Funkcja z jednym parametrem&quot;&quot;&quot;</i></font> 
+<font color="#008700">    ...: </font>    <font color="#008700">print</font>(arg) 
+<font color="#008700">    ...: </font>                                                                                                         
+
+<font color="#008700">In [</font><font color="#8AE234"><b>78</b></font><font color="#008700">]: </font><font color="#008700"><b>def</b></font> <font color="#0087D7">funkcja_b</font>(arg, print_data=<font color="#008700"><b>True</b></font>): 
+<font color="#008700">    ...: </font>    <font color="#AF5F00"><i>&quot;&quot;&quot;Funkcja z parametrem pozycyjnym oraz parametrem nazwanym&quot;&quot;&quot;</i></font> 
+<font color="#008700">    ...: </font>    <font color="#008700"><b>if</b></font> print_data: 
+<font color="#008700">    ...: </font>        <font color="#008700">print</font>(arg) 
+<font color="#008700">    ...: </font>         
+<font color="#008700">    ...: </font>                                                                                                         
+
+<font color="#008700">In [</font><font color="#8AE234"><b>79</b></font><font color="#008700">]: </font>funkcja_a(<font color="#AF5F00">&apos;siemka&apos;</font>)                                                                                      
+siemka
+
+<font color="#008700">In [</font><font color="#8AE234"><b>80</b></font><font color="#008700">]: </font>funkcja_b(<font color="#AF5F00">&apos;siemka&apos;</font>)                                                                                      
+siemka</pre>
+                            <h3 id="wywoływanie_funkcji">Wywoływanie funkcji</h3>
+                            <p>
+                                Funkcje są obiektami, można je przekazywać i przypisywać do zmiennych.
+                            </p>
+<pre><font color="#008700">In [</font><font color="#8AE234"><b>81</b></font><font color="#008700">]: </font><font color="#008700"><b>def</b></font> <font color="#0087D7">dodaj</font>(x, y, return_abs=<font color="#008700"><b>False</b></font>): 
+<font color="#008700">    ...: </font>    <font color="#AF5F00"><i>&quot;&quot;&quot;Zwraca sumę dwóch argumentów&quot;&quot;&quot;</i></font> 
+<font color="#008700">    ...: </font>    <font color="#008700"><b>if</b></font> return_abs: 
+<font color="#008700">    ...: </font>        <font color="#008700"><b>return</b></font> <font color="#008700">abs</font>(x + y) 
+<font color="#008700">    ...: </font>    <font color="#008700"><b>return</b></font> x + y 
+<font color="#008700">    ...: </font>                                                                                                         
+
+<font color="#008700">In [</font><font color="#8AE234"><b>82</b></font><font color="#008700">]: </font>dodaj                                                                                                    
+<font color="#870000">Out[</font><font color="#EF2929"><b>82</b></font><font color="#870000">]: </font>&lt;function __main__.dodaj(x, y, return_abs=False)&gt;
+
+<font color="#008700">In [</font><font color="#8AE234"><b>83</b></font><font color="#008700">]: </font>zmienna = dodaj                                                                                          
+
+<font color="#008700">In [</font><font color="#8AE234"><b>84</b></font><font color="#008700">]: </font>zmienna(<font color="#008700">2</font>, <font color="#008700">3</font>)                                                                                            
+<font color="#870000">Out[</font><font color="#EF2929"><b>84</b></font><font color="#870000">]: </font>5
+
+<font color="#008700">In [</font><font color="#8AE234"><b>85</b></font><font color="#008700">]: </font>zmienna(<font color="#008700">2</font>, -<font color="#008700">3</font>)                                                                                           
+<font color="#870000">Out[</font><font color="#EF2929"><b>85</b></font><font color="#870000">]: </font>-1
+
+<font color="#008700">In [</font><font color="#8AE234"><b>86</b></font><font color="#008700">]: </font>zmienna(<font color="#008700">2</font>, -<font color="#008700">3</font>, return_abs=<font color="#008700"><b>True</b></font>)                                                                          
+<font color="#870000">Out[</font><font color="#EF2929"><b>86</b></font><font color="#870000">]: </font>1
+
+<font color="#008700">In [</font><font color="#8AE234"><b>87</b></font><font color="#008700">]: </font>zmienna(<font color="#008700">2</font>, -<font color="#008700">3</font>, <font color="#008700"><b>True</b></font>)                                                                                     
+<font color="#870000">Out[</font><font color="#EF2929"><b>87</b></font><font color="#870000">]: </font>1
+</pre>
+                        <p>
+                            Funkcje mogą obsługiwać nieokreśloną liczbę argumentów pozycyjnych i nazwanych przy użyciu
+                            operatorów wyłuskania <code>*</code> oraz <code>**</code>
+                        </p>
+                        <h2 id="moduły">Moduły</h2>
+                        <p>
+                            Modułem nazywamy pojedynczy plik z kodem. Duże aplikacje zawierają wiele plików z kodem (wiele modułów).
+                            Każdy moduł powinien zawierać kod związany ze sobą (np. drobne funkcje pomocnicze w <code>utils.py</code>,
+                            definicje formularzy w <code>forms.py</code> a funkcje walidacyjne w <code>validators.py</code>)
+                        </p>
+                        <p>
+                            Do wczytywania obiektów zdeklarowanych w innych modułach służy instrukcja <code>import</code><br/>
+                            Można jej używać na kilka sposobów:
+<div class="indent">                            <ul>
+                                <li><code>import modul</code> - obiekty z modulu są dostępne "po kropce" <code>modul.obiekt</code></li>
+                                <li><code>from modul import obiekt1, obiekt2</code></li>
+                                <li><code>from modul import *</code> - importuje wszystkie obiekty z modulu (metoda niezalecana)</li>
+                                <li><code>import modul.obiekt as nowa_nazwa</code> - importuje obiekt pod nową nazwą</li>
+                            </ul></div>
+                        </p>
+                        <p>
+                            Python podczas procesu importu wykonuje (jednokrotnie, za pierwszym razem) wszystkie instrukcje zawarte w module
+                            (np. instrukcje deklaracji funkcji czy klas). Kolejne wywołanie importu obiektów nie powoduje ich ponownego utworzenia.
+                        </p>
+                <h1 id="gra_saper">Gra saper</h1>
+                    <h2 id="cele_i_założenia">Cele i założenia</h2>
+                    <p>
+                        Gra składa się z pola minowego w rozmiarze 10x10. W losowo wybranych polach znajdują się miny.
+                        Odkrycie pola zawierającego minę oznacza jej detonację oraz koniec gry. Pozostałe pola zawierają
+                        informację o ilości min w bezpośrednim sąsiedztwie. Celem gry jest poprawne oznaczenie
+                        wszystkich pól minowych.
+                    </p>
+                    <h2 id="budowa_aplikacji">Budowa aplikacji</h2>
+                    <p>
+                        Kod gry składa się z trzech modułów:
+                        <ul>
+                            <li><b>game.py</b> - moduł główny do uruchomienia gry</li>
+                            <li><b>mineswp.py</b> - moduł definujący okno gry, ustawienia oraz kontrolki interfejsu graficznego</li>
+                            <li><b>game_lib.py</b> - moduł zawierający funkcje uruchamiane przez akcje użytkownika</li>
+                        </ul>
+                        Zdefiniowane zdarzenia w grze (np. kliknięcie w pole) uruchamia funkcję, która jest pod to zdarzenie przypisana.
+                        Funkcja otrzymuje <b>obiekt zdarzenia</b>, w którym zapisane są informacje o kontrolce graficznej i całym
+                        kontekście aplikacji.
+                    </p>
+                    <h2 id="oprogamowanie_brakującej_logiki">Oprogramowanie logiki</h2>
+                    <p>
+                        Celem ćwiczenia jest uzuepłnienie kodu funkcji z modułu <code>game_lib.py</code> tak, aby spełnić wymagania funkcjonalne gry.
+                    </p>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
